@@ -16,7 +16,6 @@ a{
 
 }
 .wrapper{
-    border: 1px solid black;
     padding: 1%;
     width: 80%;
     margin: 0 auto;
@@ -31,9 +30,7 @@ a{
     clear: both;
 }
 /* Css for menu */
-.menu{
-    border-bottom: 1px solid black;
-}
+
 .menu ul {
     list-style-type: none;
 }
