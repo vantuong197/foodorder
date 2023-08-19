@@ -35,7 +35,7 @@ include('../config/constants.php')
             <br><br>
             <input type="submit" name="submit" value="Login" class="btn-primary">
         </form><br><br>
-        <p class="text-center">Do not have account? - <a href="./signup.php">Create acoount here</a></p>
+        <p class="text-center">Do not have account? - <a href="./signup.php">Sign up here!</a></p>
         <p class="text-center">Created By - <a href="">Tuong Tran</a></p>
     </div>
 </body>
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
     // 3. Execute the query
     $res = mysqli_query($conn, $sqlSelect);
     if (mysqli_num_rows($res) > 0) {
-        $_SESSION['loginsuccess'] = "Login Seccessful";
+        $_SESSION['loginsuccess'] = "Login Successful";
         $_SESSION['user'] = $userName;
         header('location:' . SITEURL);
     } else {

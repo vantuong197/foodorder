@@ -9,10 +9,16 @@ include("./components/header.php")
         <br />
         <br />
 
-        <a href="#" class="btn-primary">Add admin</a>
+        <a href="./add-category.php" class="btn-primary">Add Category</a>
         <br />
         <br />
         <br />
+        <?php
+            if(isset($_SESSION['addsuccess'])){
+                echo $_SESSION['addsuccess'];
+                unset($_SESSION['addsuccess']);
+            }
+        ?>
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
