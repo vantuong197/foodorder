@@ -122,3 +122,9 @@ table tr td{
     background-color: aquamarine;
     color: black;
 }
+
+/* Css for login page */
+.login{
+    width: 30%;
+    border: 1px solid black;
+}
