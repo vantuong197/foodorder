@@ -12,26 +12,23 @@ include("./components/header.php")
             echo $_SESSION['add'];
             unset($_SESSION['add']);
         }
-        if(isset($_SESSION['delete'])){
+        if (isset($_SESSION['delete'])) {
             echo $_SESSION['delete'];
-            unset($_SESSION['delete']); 
+            unset($_SESSION['delete']);
         }
-        if(isset($_SESSION['update'])){
+        if (isset($_SESSION['update'])) {
             echo $_SESSION['update'];
-            unset($_SESSION['update']); 
+            unset($_SESSION['update']);
         }
-        if(isset($_SESSION['userinvalid'])){
+        if (isset($_SESSION['userinvalid'])) {
             echo $_SESSION['userinvalid'];
-            unset($_SESSION['userinvalid']); 
+            unset($_SESSION['userinvalid']);
         }
-        if(isset($_SESSION['update-success'])){
+        if (isset($_SESSION['update-success'])) {
             echo $_SESSION['update-success'];
-            unset($_SESSION['update-success']); 
+            unset($_SESSION['update-success']);
         }
-        if(isset($_SESSION['loginsuccess'])){
-            echo $_SESSION['loginsuccess'];
-            unset($_SESSION['loginsuccess']); 
-        }
+
         ?>
         <br />
         <br />
@@ -66,9 +63,9 @@ include("./components/header.php")
                         <td><?php echo $fullname; ?></td>
                         <td>v<?php echo $username; ?></td>
                         <td>
-                            <a href="<?php echo SITEURL."update-admin.php?id=".$id;?>" class="btn-secondary">Update Admin</a>
-                            <a href="<?php echo SITEURL."update-password.php?id=".$id;?>" class="btn-primary">Change Password</a>
-                            <a href="<?php echo SITEURL."delete-admin.php?id=".$id;?>" class="btn-danger">Delete</a>
+                            <a href="<?php echo SITEURL . "update-admin.php?id=" . $id; ?>" class="btn-secondary">Update Admin</a>
+                            <a href="<?php echo SITEURL . "update-password.php?id=" . $id; ?>" class="btn-primary">Change Password</a>
+                            <a href="<?php echo SITEURL . "delete-admin.php?id=" . $id; ?>" class="btn-danger">Delete</a>
                         </td>
                     </tr>
             <?php

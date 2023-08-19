@@ -3,4 +3,3 @@
         $_SESSION['login'] = 'Not logged in yet';
         header('location:'.SITEURL.'login.php');
     }
-?>

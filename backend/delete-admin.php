@@ -13,4 +13,3 @@
     // Create SQL query to delete admin
 
     // redirect to manage admin page with message success or failed
-?>

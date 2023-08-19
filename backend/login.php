@@ -12,15 +12,15 @@ include('../config/constants.php')
 
     <div class="login">
         <h1 class="text-center">Login </h1><br><br>
-        <?php 
-            if(isset($_SESSION['loginfail'])){
-                echo $_SESSION['loginfail'];
-                unset($_SESSION['loginfail']);
-            }
-            if(isset($_SESSION['login'])){
-                echo $_SESSION['login'];
-                unset($_SESSION['login']);
-            }
+        <?php
+        if (isset($_SESSION['loginfail'])) {
+            echo $_SESSION['loginfail'];
+            unset($_SESSION['loginfail']);
+        }
+        if (isset($_SESSION['login'])) {
+            echo $_SESSION['login'];
+            unset($_SESSION['login']);
+        }
         ?>
         <form action="" method="post" class="text-center">
             Username: <br>

@@ -1,8 +1,8 @@
 <?php
-    include("./components/header.php")
+include("./components/header.php")
 ?>
 
-    <!-- Main Content Section Start -->
+<!-- Main Content Section Start -->
 <div class="main-content">
     <div class="wrapper">
         <h1>Manage Food</h1>
@@ -53,7 +53,7 @@
         </table>
     </div>
 </div>
-    <!-- Main Content Section end -->
+<!-- Main Content Section end -->
 <?php
-    include("./components/footer.php")
+include("./components/footer.php")
 ?>
