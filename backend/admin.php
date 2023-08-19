@@ -28,6 +28,10 @@ include("./components/header.php")
             echo $_SESSION['update-success'];
             unset($_SESSION['update-success']); 
         }
+        if(isset($_SESSION['loginsuccess'])){
+            echo $_SESSION['loginsuccess'];
+            unset($_SESSION['loginsuccess']); 
+        }
         ?>
         <br />
         <br />

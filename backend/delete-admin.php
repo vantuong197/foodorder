@@ -4,7 +4,7 @@
     $id = $_GET['id'];
     $sql = "DELETE FROM tbl_admin WHERE id=$id";
     if (mysqli_query($conn, $sql)) {
-        $_SESSION['delete'] = "Record deleted successfully";
+        $_SESSION['delete'] = "Admin account deleted successfully";
         header('location:'.SITEURL.'admin.php');
       } else {
         $_SESSION['delete'] = "Error deleting record: " . mysqli_error($conn);

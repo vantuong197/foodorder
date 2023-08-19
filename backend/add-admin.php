@@ -28,7 +28,7 @@ include("./components/header.php")
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
+                        <input type="submit" name="submit" value="Create Admin Account" class="btn-secondary">
                     </td>
                 </tr>
             </table>
@@ -49,7 +49,7 @@ include("./components/footer.php")
         $full_name = $_POST['fullname'];
         $username = $_POST['username'];
         $password = md5($_POST['pdw']);
-
+        
         // SQL query to save the data into database
         $sql = "INSERT INTO tbl_admin SET 
             full_name='$full_name',

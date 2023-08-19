@@ -127,4 +127,6 @@ table tr td{
 .login{
     width: 30%;
     border: 1px solid black;
+    margin: 5% auto;
+    padding: 2%;
 }
