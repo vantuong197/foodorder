@@ -21,6 +21,10 @@ include('../config/constants.php')
             echo $_SESSION['login'];
             unset($_SESSION['login']);
         }
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
         ?>
         <form action="" method="post" class="text-center">
             Username: <br>
@@ -31,6 +35,7 @@ include('../config/constants.php')
             <br><br>
             <input type="submit" name="submit" value="Login" class="btn-primary">
         </form><br><br>
+        <p class="text-center">Do not have account? - <a href="./signup.php">Create acoount here</a></p>
         <p class="text-center">Created By - <a href="">Tuong Tran</a></p>
     </div>
 </body>

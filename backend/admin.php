@@ -61,7 +61,7 @@ include("./components/header.php")
                     <tr>
                         <td><?php echo $sn++ . "."; ?></td>
                         <td><?php echo $fullname; ?></td>
-                        <td>v<?php echo $username; ?></td>
+                        <td><?php echo $username; ?></td>
                         <td>
                             <a href="<?php echo SITEURL . "update-admin.php?id=" . $id; ?>" class="btn-secondary">Update Admin</a>
                             <a href="<?php echo SITEURL . "update-password.php?id=" . $id; ?>" class="btn-primary">Change Password</a>

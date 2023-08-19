@@ -11,6 +11,10 @@ include("./components/header.php")
             echo $_SESSION['add'];
             unset($_SESSION['add']);
         }
+        if (isset($_SESSION['invalid'])) {
+            echo $_SESSION['invalid'];
+            unset($_SESSION['invalid']);
+        }
         ?>
         <form action="" method="POST">
             <table class="tbl-30">
@@ -49,27 +53,31 @@ if (isset($_POST['submit'])) {
     $full_name = $_POST['fullname'];
     $username = $_POST['username'];
     $password = md5($_POST['pdw']);
-
-    // SQL query to save the data into database
-    $sql = "INSERT INTO tbl_admin SET 
-            full_name='$full_name',
-            username='$username',
-            password='$password'
+    if (strlen($full_name) === 0 || strlen($username) === 0 || !isset($_POST['pdw'])) {
+        $_SESSION['invalid'] = "Please enter valid value";
+        header('location:' . SITEURL . 'add-admin.php');
+    } else {
+        // SQL query to save the data into database
+        $sql = "INSERT INTO tbl_admin SET 
+        full_name='$full_name',
+        username='$username',
+        password='$password'
         ";
 
-    $res = mysqli_query($conn, $sql);
+        $res = mysqli_query($conn, $sql);
 
-    // Check whether data is inserted or not
+        // Check whether data is inserted or not
 
-    if ($res == true) {
-        // data inserted
-        // Create a session variable to display message
-        $_SESSION['add'] = "admin added successfully";
-        header("location:" . SITEURL . 'admin.php');
-    } else {
-        // Create a session variable to display message
-        $_SESSION['add'] = "admin added failed";
-        header("location:" . SITEURL . 'add-admin.php');
+        if ($res == true) {
+            // data inserted
+            // Create a session variable to display message
+            $_SESSION['add'] = "admin added successfully";
+            header("location:" . SITEURL . 'admin.php');
+        } else {
+            // Create a session variable to display message
+            $_SESSION['add'] = "admin added failed";
+            header("location:" . SITEURL . 'add-admin.php');
+        }
     }
 } else {
 }
