@@ -20,6 +20,14 @@ include("./components/header.php")
             echo $_SESSION['update'];
             unset($_SESSION['update']); 
         }
+        if(isset($_SESSION['userinvalid'])){
+            echo $_SESSION['userinvalid'];
+            unset($_SESSION['userinvalid']); 
+        }
+        if(isset($_SESSION['update-success'])){
+            echo $_SESSION['update-success'];
+            unset($_SESSION['update-success']); 
+        }
         ?>
         <br />
         <br />
