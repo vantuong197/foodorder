@@ -29,6 +29,12 @@ a{
     float: none;
     clear: both;
 }
+.success{
+    color: #50bd1d;
+}
+.error{
+    color: #eb1000;
+}
 /* Css for menu */
 
 .menu ul {

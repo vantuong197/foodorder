@@ -13,49 +13,50 @@ include("./components/header.php")
         <br />
         <br />
         <br />
-        <?php
-            if(isset($_SESSION['addsuccess'])){
-                echo $_SESSION['addsuccess'];
-                unset($_SESSION['addsuccess']);
-            }
-        ?>
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>Username</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>1.</td>
-                <td>Tran Tuong</td>
-                <td>vantuong197</td>
-                <td>
-                    <a href="" class="btn-secondary">Update Admin</a>
-                    <a href="" class="btn-danger">Delete</a>
-
-
-                </td>
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td>Tran Tuong</td>
-                <td>vantuong197</td>
-                <td>
-                    <a href="" class="btn-secondary">Update Admin</a>
-                    <a href="" class="btn-danger">Delete</a>
-
-                </td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td>Tran Tuong</td>
-                <td>vantuong197</td>
-                <td>
-                    <a href="" class="btn-secondary">Update Admin</a>
-                    <a href="" class="btn-danger">Delete</a>
-                </td>
-            </tr>
+            <?php
+                $sql = "SELECT * FROM tbl_category";
+                $res = mysqli_query($conn, $sql);
+                $sn = 1;
+                if (mysqli_num_rows($res) > 0) {
+                    while ($rows = mysqli_fetch_assoc($res)) {
+                        $id = $rows['id'];
+                        $title = $rows['title'];
+                        $image_name = $rows['image_name'];
+                        $featured = $rows['featured'];
+                        $active = $rows['active'];
+            ?>
+                        <tr>
+                            <td><?php echo $sn ?>.</td>
+                            <td><?php echo $title ?></td>
+                            <td><?php echo $image_name ?></td>
+                            <td><?php echo $featured ?></td>
+                            <td><?php echo $active ?></td>
+                            <td>
+                                <a href="" class="btn-secondary">Update Category</a>
+                                <a href="" class="btn-danger">Delete Category</a>
+                            </td>
+                        </tr>
+            <?php
+                
+                    $sn++;
+                    }
+                }else{
+                    ?>
+                    <tr>
+                        <td class="error">No category added</td>
+                    </tr>
+                    <?php
+                }
+            ?>
         </table>
     </div>
 </div>

@@ -73,7 +73,10 @@ include('../backend/components/header.php');
                 $imageName = $_FILES['image']['name'];
                 // Auto rename our image
                 $ext = end(explode('.', $imageName));
-                if($ext !== "jpg" || $ext !== "pgn" || $ext !== "gif"){
+                if($ext === "jpg" || $ext === "pgn" || $ext === "gif"){
+                    $imageName = "Food_category_".rand(000,999).rand(000,999).".".$ext;
+                }else{
+                    echo $ext;
                     $_SESSION['fileinvalid'] = "<div class='error'>Choosen file is not a image</div>";
                     header('location:' . SITEURL . 'add-category.php');
                     die();
@@ -99,7 +102,6 @@ include('../backend/components/header.php');
                     featured='$featured',
                     active='$active'
                 ";
-
             // Execute the query to save data in database
             $res = mysqli_query($conn, $sqlInsert);
 
