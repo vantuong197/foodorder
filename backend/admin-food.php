@@ -9,47 +9,47 @@ include("./components/header.php")
         <br />
         <br />
 
-        <a href="#" class="btn-primary">Add food</a>
+        <a href="<?php echo SITEURL.'add-food.php'?>" class="btn-primary">Add food</a>
         <br />
         <br />
         <br />
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>Username</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>1.</td>
-                <td>Tran Tuong</td>
-                <td>vantuong197</td>
-                <td>
-                    <a href="" class="btn-secondary">Update Admin</a>
-                    <a href="" class="btn-danger">Delete</a>
-
-
-                </td>
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td>Tran Tuong</td>
-                <td>vantuong197</td>
-                <td>
-                    <a href="" class="btn-secondary">Update Admin</a>
-                    <a href="" class="btn-danger">Delete</a>
-
-                </td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td>Tran Tuong</td>
-                <td>vantuong197</td>
-                <td>
-                    <a href="" class="btn-secondary">Update Admin</a>
-                    <a href="" class="btn-danger">Delete</a>
-                </td>
-            </tr>
+            <?php 
+                $sn = 1;
+                $sqlSelect = "SELECT * FROM tbl_food";
+                $res = mysqli_query($conn, $sqlSelect);
+                if(mysqli_num_rows($res)>0){
+                    while($row = mysqli_fetch_assoc($res)){
+                        ?>
+                            <tr>
+                                <td><?php echo $sn++?></td>
+                                <td><?php echo $row['title']?></td>
+                                <td><?php echo $row['description']?></td>
+                                <td><?php echo $row['price']?></td>
+                                <td><img src="<?php echo "../frontend/images/foods/" . $row['image_name'] ?>" alt="" width="100px" height="auto" ></td>
+                                <td><?php echo $row['featured']?></td>
+                                <td><?php echo $row['active']?></td>
+                                <td>
+                                    <a href="" class="btn-secondary">Update Admin</a>
+                                    <a href="" class="btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        <?php
+                    }
+                }else{
+                    echo '<tr> <td colspan="7" class="error">Food not Added yet. </td></tr>';
+                }
+            ?>
         </table>
     </div>
 </div>
