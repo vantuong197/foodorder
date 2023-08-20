@@ -12,6 +12,12 @@ include("./components/header.php")
         <a href="./add-category.php" class="btn-primary">Add Category</a>
         <br />
         <br />
+        <?php
+            if(isset($_SESSION['delete'])){
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
+        ?>
         <br />
         <table class="tbl-full">
             <tr>
@@ -35,19 +41,27 @@ include("./components/header.php")
                         $active = $rows['active'];
             ?>
                         <tr>
-                            <td><?php echo $sn ?>.</td>
+                            <td><?php echo $sn++ ?>.</td>
                             <td><?php echo $title ?></td>
-                            <td><?php echo $image_name ?></td>
+                            <td>
+                                <?php 
+                                    if($image_name === ""){
+                                        echo '<div class="error">Image is not added</div>';
+                                    }else{
+                                        ?>
+                                        <img src="<?php echo "../frontend/images/categorys/".$image_name?>" width="100px">
+                                        <?php
+                                    }
+                                ?>
+                            </td>
                             <td><?php echo $featured ?></td>
                             <td><?php echo $active ?></td>
                             <td>
                                 <a href="" class="btn-secondary">Update Category</a>
-                                <a href="" class="btn-danger">Delete Category</a>
+                                <a href="<?php echo SITEURL."delete-category.php?id=".$id."&image=".$image_name?>" class="btn-danger">Delete Category</a>
                             </td>
                         </tr>
             <?php
-                
-                    $sn++;
                     }
                 }else{
                     ?>
