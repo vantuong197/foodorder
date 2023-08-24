@@ -13,6 +13,12 @@ include("./components/header.php")
         <br />
         <br />
         <br />
+        <?php 
+            if(isset($_SESSION['error'])){
+                echo $_SESSION['error'];
+                unset($_SESSION['error']);
+            }
+        ?>
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
