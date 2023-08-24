@@ -40,7 +40,7 @@ include("./components/header.php")
                                 <td><?php echo $row['featured']?></td>
                                 <td><?php echo $row['active']?></td>
                                 <td>
-                                    <a href="" class="btn-secondary">Update Admin</a>
+                                    <a href="<?php echo SITEURL . "update-food.php?id=" . $row['id']?>" class="btn-secondary">Update Food</a>
                                     <a href="" class="btn-danger">Delete</a>
                                 </td>
                             </tr>
