@@ -52,7 +52,7 @@ include("./components/header.php")
                                 <td><?php echo $row['active']?></td>
                                 <td>
                                     <a href="<?php echo SITEURL . "update-food.php?id=" . $row['id']?>" class="btn-secondary">Update Food</a>
-                                    <a href="" class="btn-danger">Delete</a>
+                                    <a href="<?php echo SITEURL . "delete-food.php?id=" . $row['id']?>" class="btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php

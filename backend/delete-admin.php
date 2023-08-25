@@ -1,6 +1,7 @@
 <?php
     // Get id of ad to be deleted
     include("../config/constants.php");
+    include('check-login.php');
     $id = $_GET['id'];
     $sql = "DELETE FROM tbl_admin WHERE id=$id";
     if (mysqli_query($conn, $sql)) {

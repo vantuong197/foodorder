@@ -2,8 +2,16 @@
     // Get id of ad to be deleted
     include("../config/constants.php");
     include('check-login.php');
+    
     $id = $_GET['id'];
-    $imageName = $_GET['image'];
+    $sql = "SELECT * FROM tbl_food WHERE id=$id";
+    $res = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($res) >0){
+        while($row = mysqli_fetch_assoc($res)){
+            print_r($row);
+            die();
+        }
+    }
     $destinationPath = "../frontend/images/categorys/" . $imageName;
     $sql = "DELETE FROM tbl_category WHERE id=$id";
     if (mysqli_query($conn, $sql)) {

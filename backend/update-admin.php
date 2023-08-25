@@ -71,5 +71,4 @@ include("../backend/components/header.php");
 
 <?php
 include("../backend/components/footer.php");
-
 ?>

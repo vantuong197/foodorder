@@ -1,7 +1,6 @@
 <?php
         // Start session
         session_start();
-
         // Execute Query and save data in database
         define('SITEURL', 'http://localhost/foodorder/backend/');
         define('LOCALHOST', 'localhost');
