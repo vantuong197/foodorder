@@ -5,7 +5,7 @@
 <html>
     <head>
         <title>Food Order Website - Home Page</title>
-        <link rel="stylesheet" href="../frontend/css/backend.css">
+        <link rel="stylesheet" href="http://localhost/foodorder/frontend/css/backend.css">
     </head>
     
     <body>

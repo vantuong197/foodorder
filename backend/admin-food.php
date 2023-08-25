@@ -18,6 +18,11 @@ include("./components/header.php")
                 echo $_SESSION['error'];
                 unset($_SESSION['error']);
             }
+            if(isset( $_SESSION['update'])){
+                echo  $_SESSION['update'];
+                unset( $_SESSION['update']);
+            }
+           
         ?>
         <table class="tbl-full">
             <tr>
