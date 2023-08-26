@@ -22,7 +22,10 @@ include("./components/header.php")
                 echo  $_SESSION['update'];
                 unset( $_SESSION['update']);
             }
-           
+            if(isset( $_SESSION['delete'])){
+                echo  $_SESSION['delete'];
+                unset( $_SESSION['delete']);
+            }
         ?>
         <table class="tbl-full">
             <tr>
