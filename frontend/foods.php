@@ -21,7 +21,9 @@
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
-
+            <?php 
+                
+            ?>
             <div class="food-menu-box">
                 <div class="food-menu-img">
                     <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">

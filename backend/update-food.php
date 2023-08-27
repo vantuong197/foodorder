@@ -120,7 +120,8 @@
         $updateImg = false;
         if(!empty($_FILES['newImage']['name'])){
             $newImg = $_FILES['newImage']['name'];
-            $ext = end(explode('.', $newImg));
+            $imgParts = explode('.', $newImg);
+            $ext = end($imgParts);
             if($ext === "jpg" || $ext === "pgn" || $ext === "gif"){
                 $newImg = "Food_category_".rand(000,999).rand(000,999).".".$ext;
                 $sourcePath = $_FILES['newImage']['tmp_name'];

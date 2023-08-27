@@ -3,6 +3,7 @@
         session_start();
         // Execute Query and save data in database
         define('SITEURL', 'http://localhost/foodorder/backend/');
+        define('SITEURLFRONT', 'http://localhost/foodorder/frontend/');
         define('LOCALHOST', 'localhost');
         define('DB_USERNAME', 'root');
         define('PASSWORD', '');
