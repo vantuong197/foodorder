@@ -38,7 +38,9 @@
                                             <?php echo  $row['description']?>
                                         </p>
                                         <br>
-                                        <a href="order.php?id=<?php echo  $row['id']?>" class="btn btn-primary">Order Now</a>
+                                        <a href="order.php" class="btn btn-primary" onclick="addToCart(<?php echo $row['id'] ?>, true)">Order Now</a>
+                                        <button class="btn-secondary btn" 
+                                        onclick="addToCart(<?php echo $row['id'] ?>, false)">Add to cart</button>
                                     </div>
                                 </div>
                             <?php

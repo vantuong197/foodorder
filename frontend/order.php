@@ -12,30 +12,41 @@
                 <fieldset>
                     <legend>Selected Food</legend>
                     <?php 
-                        if(isset($_GET['id'])){
-                            $id = $_GET['id'];
-                            $sql = "SELECT * FROM tbl_food WHERE id='$id'";
+                        // Retrieve the existing cart data from the cookie
+                        $cartData = isset($_COOKIE[$cookie_name]) ? $_COOKIE[$cookie_name] : [];
+                        if(strlen($cartData) > 2){
+                            $cart = json_decode($cartData, true);
+                            $cartId = implode(',', $cart);
+                            $sql = "SELECT * FROM tbl_food WHERE id in ({$cartId})";
                             $res = mysqli_query($conn, $sql);
+                        // Before
                             if(mysqli_num_rows($res) > 0){
                                 while($row = mysqli_fetch_assoc($res)){
                                     ?>
                                         <div class="food-menu-img">
-                                            <img src="images/foods/<?php echo $row['image_name'] ?>" alt="" class="img-responsive img-curve">
-                                            </div>
-                                            <div class="food-menu-desc">
+                                                <img src="images/foods/<?php echo $row['image_name'] ?>" alt="" class="img-responsive img-curve">
+                                        </div>
+                                        <div class="food-menu-desc">
                                             <h3><?php echo $row['title'] ?></h3>
                                             <p class="food-price">$<?php echo $row['price'] ?></p>
                                             <div class="order-label">Quantity</div>
                                             <input type="number" name="qty" class="input-responsive" value="1" required>
-                                        </div>
+                                            <div class="delete"><a class="btn btn-danger" onclick="removeToCart(<?php echo $row['id'] ?>)">X</a></div>
+                                        </div>      
                                     <?php
                                 }
                             }else{
-                                
+                                ?>
+                                <h3>No food added</h3>
+                                <?php 
                             }
                         }else{
-
+                            ?>
+                                <h3>No food added</h3>
+                                <?php 
                         }
+                        
+
                     ?>    
 
 
@@ -57,13 +68,11 @@
 
                     <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
                 </fieldset>
-
             </form>
 
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
-
 <?php 
     include('../frontend/components/footer.php');
 ?>  

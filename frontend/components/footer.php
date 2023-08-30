@@ -23,6 +23,7 @@
         </div>
     </section>
     <!-- footer Section Ends Here -->
-
+    <script src="../frontend/js/style.js"></script>
 </body>
+
 </html>
