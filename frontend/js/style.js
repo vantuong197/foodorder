@@ -8,6 +8,8 @@ function addToCart(itemId, redirectFlag){
             console.log(response);
             if(redirectFlag){
                 window.location.href = 'order.php';
+            }else{
+                window.alert(response);
             }
           },
           error: function(xhr, status, error) {
