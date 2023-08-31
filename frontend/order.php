@@ -8,13 +8,14 @@
             
             <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
 
-            <form action="#" class="order">
+            <form action="#" class="order" method="POST" id="formOrder" onsubmit="sendDataToServer(event)">
                 <fieldset>
                     <legend>Selected Food</legend>
                     <?php 
                         // Retrieve the existing cart data from the cookie
                         $cartData = isset($_COOKIE[$cookie_name]) ? $_COOKIE[$cookie_name] : [];
                         if(strlen($cartData) > 2){
+                            $listItem = [];
                             $cart = json_decode($cartData, true);
                             $cartId = implode(',', $cart);
                             $sql = "SELECT * FROM tbl_food WHERE id in ({$cartId})";
@@ -22,15 +23,17 @@
                         // Before
                             if(mysqli_num_rows($res) > 0){
                                 while($row = mysqli_fetch_assoc($res)){
+                                    $listItem[] = $row['id'];
                                     ?>
                                         <div class="food-menu-img">
                                                 <img src="images/foods/<?php echo $row['image_name'] ?>" alt="" class="img-responsive img-curve">
                                         </div>
                                         <div class="food-menu-desc">
+                                            <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
                                             <h3><?php echo $row['title'] ?></h3>
                                             <p class="food-price">$<?php echo $row['price'] ?></p>
                                             <div class="order-label">Quantity</div>
-                                            <input type="number" name="qty" class="input-responsive" value="1" required>
+                                            <input type="number" name="qty" class="input-responsive" required>
                                             <div class="delete"><a class="btn btn-danger" onclick="removeToCart(<?php echo $row['id'] ?>)">X</a></div>
                                         </div>      
                                     <?php
@@ -46,7 +49,6 @@
                                 <?php 
                         }
                         
-
                     ?>    
 
 
@@ -65,8 +67,7 @@
 
                     <div class="order-label">Address</div>
                     <textarea name="address" rows="10" placeholder="E.g. Street, City, Country" class="input-responsive" required></textarea>
-
-                    <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary" >
                 </fieldset>
             </form>
 

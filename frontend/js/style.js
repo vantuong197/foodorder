@@ -35,3 +35,13 @@ function removeToCart(itemId){
         }
     });
 }
+
+function sendDataToServer(e){
+    e.preventDefault();
+    let formEl = document.querySelector('#formOrder');
+    let qty = formEl.querySelectorAll('input[name="qty"], input[name="id"]');
+    const orderObject = {}
+    for(let i =0; i < qty.length; i+=2){
+        orderObject[qty[i].value] = qty[i+1].value;
+    }
+}
