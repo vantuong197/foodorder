@@ -54,7 +54,7 @@
 
                 </fieldset>
                 
-                <fieldset>
+                <fieldset id="user-infor">
                     <legend>Delivery Details</legend>
                     <div class="order-label">Full Name</div>
                     <input type="text" name="full-name" placeholder="E.g. Yamada" class="input-responsive" required>
