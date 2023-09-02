@@ -7,7 +7,7 @@
         <div class="container">
             
             <h2 class="text-center text-white">Thank you for ordering!</h2>
-            <button class="btn btn-secondary"><a href="index.php">Back to Home</a></button>
+            <button class="btn"><a href="index.php">Back to Home</a></button>
 
         </div>
     </section>

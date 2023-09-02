@@ -19,9 +19,9 @@
         $contact = $data['userInfor'][0]['contact'];
         $email = $data['userInfor'][0]['email'];
         $address = $data['userInfor'][0]['address'];
-
-        $sql = "INSERT INTO tbl_order (food, customer_name, customer_contact, customer_email, customer_address)
-            VALUES ('$foods_string','$fullname','$contact','$email', '$address')
+        $orderTime = date("Y-m-d h:i:s");
+        $sql = "INSERT INTO tbl_order (food,order_date, customer_name, customer_contact, customer_email, customer_address)
+            VALUES ('$foods_string','$orderTime','$fullname','$contact','$email', '$address')
         ";
         if (mysqli_query($conn, $sql)) {
             setcookie($cookie_name, $cookie_value, time() - 3600, '/');

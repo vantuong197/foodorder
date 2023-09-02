@@ -46,34 +46,39 @@ function sendDataToServer(e){
 
         ]
     }
-    for(let i =0; i < qty.length; i+=2){
-        let obj = {
-            id: qty[i].value,
-            qty: qty[i+1].value
+    if(qty.length < 2){
+        let formEl = document.querySelector("#formOrder");
+        formEl.querySelector('h3').innerHTML = "<span style='color:red'> Please Choose at least one food to order</span>";
+    }else{
+        for(let i =0; i < qty.length; i+=2){
+            let obj = {
+                id: qty[i].value,
+                qty: qty[i+1].value
+            }
+            orderObject.listFood.push(obj);
         }
-        orderObject.listFood.push(obj);
-    }
-    let userInfoEl = document.querySelector('#user-infor');
-    let listInfor = userInfoEl.querySelectorAll('input[name="full-name"],input[name="contact"],input[name="email"],textarea[name="address"]')
-    let user ={
-        fullname: listInfor[0].value,
-        contact: listInfor[1].value,
-        email: listInfor[2].value,
-        address: listInfor[3].value
-    }
-    orderObject.userInfor.push(user);
-    $.ajax({
-        url: '../frontend/order-process.php',
-        type: 'POST',
-        data: {data:orderObject},
-        success: function(response) {
-            // Handle the response from the server if needed
-            window.location.href = 'order-sucess.php';
-          },
-          error: function(xhr, status, error) {
-            // Handle any errors that occurred during the AJAX request
-            console.error(error);
+        let userInfoEl = document.querySelector('#user-infor');
+        let listInfor = userInfoEl.querySelectorAll('input[name="full-name"],input[name="contact"],input[name="email"],textarea[name="address"]')
+        let user ={
+            fullname: listInfor[0].value,
+            contact: listInfor[1].value,
+            email: listInfor[2].value,
+            address: listInfor[3].value
         }
-    });
+        orderObject.userInfor.push(user);
+        $.ajax({
+            url: '../frontend/order-process.php',
+            type: 'POST',
+            data: {data:orderObject},
+            success: function(response) {
+                // Handle the response from the server if needed
+                window.location.href = 'order-sucess.php';
+              },
+              error: function(xhr, status, error) {
+                // Handle any errors that occurred during the AJAX request
+                console.error(error);
+            }
+        });
+    }
     
 }

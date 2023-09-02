@@ -48,18 +48,25 @@ include("../backend/components/header.php");
         $id = $_POST['id'];
         $full_name = $_POST['fullname'];
         $userName = $_POST['username'];
-        $sql = "UPDATE tbl_admin set
-            full_name = '$full_name',
-            username = '$userName'
-        where id = '$id'
-        ";
-
-        if (mysqli_query($conn, $sql)) {
-            $_SESSION['update'] = "Record updated successfully";
+        $sqlCheck = "SELECT * From tbl_admin WHERE username = '$userName'";
+        $res = mysqli_query($conn, $sqlCheck);
+        if(mysqli_num_rows($res) > 0){
+            $_SESSION['update'] = "Update error. Username already exsist!";
             header('location:'.SITEURL.'admin.php');
-        } else {
-            $_SESSION['update'] = "Error updating record: " . mysqli_error($conn);
-            header('location:'.SITEURL.'admin.php');
+        }else{
+            $sql = "UPDATE tbl_admin set
+                full_name = '$full_name',
+                username = '$userName'
+            where id = '$id'
+            ";
+    
+            if (mysqli_query($conn, $sql)) {
+                $_SESSION['update'] = "Record updated successfully";
+                header('location:'.SITEURL.'admin.php');
+            } else {
+                $_SESSION['update'] = "Error updating record: " . mysqli_error($conn);
+                header('location:'.SITEURL.'admin.php');
+            }
         }
         
     }

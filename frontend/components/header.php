@@ -39,6 +39,8 @@
                     </li>
                     <li>
                         <a href="#">Contact</a>
+                    </li><li>
+                        <a href="/foodorder/backend/login.php">Admin Page</a>
                     </li>
                 </ul>
             </div>
